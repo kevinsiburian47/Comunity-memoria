@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { Plus, Search, Heart, Camera, Settings, Info, Archive } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { Memory, Category, CATEGORIES } from './types';
 import MemoryCard from './components/MemoryCard';
 import AddMemoryModal from './components/AddMemoryModal';
@@ -182,6 +183,8 @@ const App: React.FC = () => {
         </div>
         <p className="font-serif italic mb-10">Memora - Digital Sanctuary for Your Soul</p>
       </footer>
+
+      <Analytics />
     </div>
   );
 };
