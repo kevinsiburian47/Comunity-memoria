@@ -1,12 +1,12 @@
 
 import React, { useState, useRef } from 'react';
 import { X, Upload } from 'lucide-react';
-import { CATEGORIES, Category } from '../types';
+import { CATEGORIES, Category, Memory } from '../types';
 
 interface AddMemoryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAdd: (memory: any) => void;
+  onAdd: (memory: Memory) => void;
 }
 
 const AddMemoryModal: React.FC<AddMemoryModalProps> = ({ isOpen, onClose, onAdd }) => {
@@ -42,10 +42,11 @@ const AddMemoryModal: React.FC<AddMemoryModalProps> = ({ isOpen, onClose, onAdd 
       category
     });
     
-    // Reset
+    // Reset form
     setTitle('');
     setDescription('');
     setImage(null);
+    setCategory('General');
     onClose();
   };
 
@@ -119,7 +120,7 @@ const AddMemoryModal: React.FC<AddMemoryModalProps> = ({ isOpen, onClose, onAdd 
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-amber-200 focus:border-amber-400 outline-none transition-all"
-                  placeholder="Contoh: Liburan Musim Panas di Bali"
+                  placeholder="Contoh: Liburan Musim Panas"
                 />
               </div>
 

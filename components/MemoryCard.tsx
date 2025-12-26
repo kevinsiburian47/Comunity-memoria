@@ -19,7 +19,10 @@ const MemoryCard: React.FC<MemoryCardProps> = ({ memory, onDelete }) => {
         />
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <button 
-            onClick={() => onDelete(memory.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(memory.id);
+            }}
             className="p-2 bg-white/90 backdrop-blur-sm text-red-500 rounded-full hover:bg-red-50 transition-colors shadow-lg"
             title="Hapus Memori"
           >
